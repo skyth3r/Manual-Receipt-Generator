@@ -46,6 +46,12 @@ And follow the authentication flow as prompted.
 
 The client will add the receipt data provided by the `payload.json` file and attempt to generate and attach a receipt to the transaction linked to the transaction_id in `payload.json`.
 
+## Example Generated Receipts
+![Image of Coco Ichibanya receipt](images/example_receipt_coco_ichibanya.jpeg)
+![Image of Edgard Cooper receipt](images/example_receipt_edgard_cooper.jpeg)
+![Image of Lush receipt](images/example_receipt_lush.jpeg)
+![Image of Tonkotsu receipt](images/example_receipt_tonkotsu.jpeg)
+
 ## Extending the Application
 This API client is very basic: it requires you to provide a single json file to generate a receipt. It does not source receipt data from elsewhere, and does not run a server to accept webhook calls from Monzo and thus does not add receipts to new transactions as they pop up.
 

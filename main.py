@@ -182,11 +182,16 @@ class ReceiptsClient:
         with open('payload.json', 'r') as file:
             payload_dict = json.load(file)
 
-        success, response = self._api_client.api_put("transaction-receipts/", json.dumps(payload_dict))
-        if not success:
-            error("Failed to upload receipt: {}".format(response))
-
-        print("Successfully uploaded receipt: {}".format(response))
+        counter = 1
+        for dict_item in payload_dict:
+            success, response = self._api_client.api_put("transaction-receipts/", json.dumps(dict_item))
+            if not success:
+                error("Failed to upload receipt: {}".format(response))
+            else:
+                print("Uploaded {}/{}".format(counter, len(payload_dict)))
+            counter += 1
+                
+        print("Successfully uploaded {} receipts: {}".format(len(payload_dict), response))
 
 if __name__ == "__main__":
     client = ReceiptsClient()
